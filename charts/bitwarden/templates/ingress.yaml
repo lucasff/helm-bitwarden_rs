@@ -39,7 +39,7 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-        	{{- range $ingressPaths }}
+          {{- range $ingressPaths }}
           - path: {{ .path }}
             pathType: {{ .pathType }}
             backend:
@@ -52,7 +52,7 @@ spec:
               serviceName: {{ $fullName }}
               servicePort: http
               {{- end }}
-	        {{- end }}
+          {{- end }}
           {{- if $webSocketEnabled }}
           - path: /notifications/hub
             pathType: ImplementationSpecific
